@@ -1,0 +1,55 @@
+# tutorial about gazebo
+http://library.lol/main/7AC9CEEE2098323DCF841E39882EEF03
+
+
+
+
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+sudo apt install curl 
+
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
+sudo apt update
+
+sudo apt install ros-noetic-desktop-full
+
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
+source ~/.bashrc
+
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+
+sudo apt install python3-rosdep
+
+sudo rosdep init
+
+rosdep update
+
+sudo apt install python3-catkin-tools python3-osrf-pycommon
+
+Restart computer
+
+# making workspace folder / important don't delete src folder
+mkdir -p ~/ros_lib_ws/src
+cd ~/ros_lib_ws/
+catkin build
+
+# next
+echo $ROS_PACKAGE_PATH
+
+echo "source  ~/ros_lib_ws
+
+/devel/setup.bash" >> ~/.bashrc
+
+# edit bashrc file
+gedit ~/.bashrc
+source /opt/ros/noetic/setup.bash  # end of file 
+source ~/ros_lib_ws/devel/setup.bash
+
+
+
+# running gazebo
+roslaunch gazebo_ros empty_world.launch
+
+
